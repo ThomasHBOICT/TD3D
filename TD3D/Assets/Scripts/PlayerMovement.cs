@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         Move();
+        Run();
     }
     private void FixedUpdate()
     {
@@ -30,5 +31,17 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.z = Input.GetAxisRaw("Vertical") * vertMuliplier;
 
+    }
+
+    private void Run()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            moveSpeed *= 1.5f;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            moveSpeed /= 1.5f;
+        }
     }
 }

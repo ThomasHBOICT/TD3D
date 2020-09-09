@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e4a32fdf7f33f542976e48582edcb42, type: 3}
+  m_Name: Wood
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6743476848538345805, guid: 6fc62547fe38b8d4b9635d18e2ee2f76, type: 3}
+  type: 2
+  description: Remains of the trees you've slain.
