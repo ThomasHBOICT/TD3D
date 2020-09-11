@@ -18,10 +18,12 @@ public class PlayerMovement : MonoBehaviour
     public SpriteRenderer jumpArrow;
 
     public ScoreObject highScore;
+    public ScoreObject currentScore;
 
     // Start is called before the first frame update
     void Start()
     {
+        currentScore.@float = 0;
         Time.timeScale = 0;
         rb = GetComponent<Rigidbody2D>();
         JumpDirection.rotationSpeed = jumpRotation;
@@ -35,12 +37,12 @@ public class PlayerMovement : MonoBehaviour
     {
         Jump();
         JumpActiveVisual();
-        HighScore();
+        ScoreUpdater();
     }
 
     private void Jump()
     {
-        if (Input.anyKeyDown && canJump)
+        if (Input.anyKeyDown && canJump || Input.touchCount > 0 && canJump)
         {
             if (Time.timeScale < 0.1)
             {
@@ -120,11 +122,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void HighScore()
+    private void ScoreUpdater()
     {
-        if (transform.position.y > highScore.highScore)
+        if (transform.position.y > highScore.@float)
         {
-            highScore.highScore = transform.position.y;
+            highScore.@float = transform.position.y;
+        }
+        if (transform.position.y > currentScore.@float)
+        {
+            currentScore.@float = transform.position.y;
         }
     }
 }

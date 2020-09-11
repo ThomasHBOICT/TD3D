@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LavaMovement : MonoBehaviour
 {
 
     public float lavaSpeed;
+    public UIController ui;
     
     // Start is called before the first frame update
     void Start()
@@ -24,7 +24,8 @@ public class LavaMovement : MonoBehaviour
     {
         if (collision.collider.tag == "Player")
         {
-            SceneManager.LoadScene("SampleScene");
+            Time.timeScale = 0;
+            ui.OpenDeathScreen();
         }
     }
 }

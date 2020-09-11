@@ -20,6 +20,6 @@ public class UIUpdater : MonoBehaviour
     void UpdateScore()
     {
         scoreText.text = Mathf.Round(player.transform.position.y).ToString();
-        highScore.text = Mathf.Round(highScoreFloat.highScore).ToString();
+        highScore.text = Mathf.Round(highScoreFloat.@float).ToString();
     }
 }
