@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed;
     public float vertMuliplier;
 
+    public Animator animator;
+
     private Rigidbody rb;
     private Vector3 movement;
     // Start is called before the first frame update
@@ -31,6 +33,21 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.z = Input.GetAxisRaw("Vertical") * vertMuliplier;
 
+
+        if (movement.x > 0)
+        {
+            //transform.localScale = new Vector3(-2.5f, 2.5f, 2.5f);
+            transform.localRotation = Quaternion.Euler(0, -180, 0);
+        }
+        if (movement.x < 0)
+        {
+            //transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
+
+        animator.SetFloat("speedX", System.Math.Abs(movement.x));
+
+        animator.SetFloat("speedZ", movement.z);
     }
 
     private void Run()
