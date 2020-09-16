@@ -8,7 +8,7 @@ public class UIController : MonoBehaviour
 {
     public GameObject deathScreen;
     public TextMeshProUGUI thisScore;
-    public ScoreObject currentScore;
+    public FloatValue currentScore;
     public void OpenDeathScreen()
     {
         deathScreen.SetActive(true);

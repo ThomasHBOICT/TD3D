@@ -7,7 +7,7 @@ public class UIUpdater : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScore;
-    public ScoreObject highScoreFloat;
+    public FloatValue highScoreFloat;
 
     public GameObject player;
 

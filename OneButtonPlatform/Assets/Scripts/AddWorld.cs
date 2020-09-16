@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class AddWorld : MonoBehaviour
 {
-   // public List<Transform> gridStartPoint;
     public Transform gridEndPoint;
-
+   
     private bool hasSpawned = false;
     private Maps mapStorer;
 
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player" && !hasSpawned)

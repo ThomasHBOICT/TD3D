@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float jumpForce;
-    public float jumpRotation;
+    
     public GameObject jumpDirection;
 
     public bool canJump = true;
@@ -17,8 +17,8 @@ public class PlayerMovement : MonoBehaviour
     private JumpDirectionTicker directionScript;
     public SpriteRenderer jumpArrow;
 
-    public ScoreObject highScore;
-    public ScoreObject currentScore;
+    public FloatValue highScore;
+    public FloatValue currentScore;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         currentScore.@float = 0;
         Time.timeScale = 0;
         rb = GetComponent<Rigidbody2D>();
-        JumpDirection.rotationSpeed = jumpRotation;
+        
         playerAnimation = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         directionScript = GetComponentInChildren<JumpDirectionTicker>();
