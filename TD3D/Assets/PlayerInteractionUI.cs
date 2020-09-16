@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerInteractionUI : MonoBehaviour
 {
     public GameObject EButton;
-    public float moveSpeed;
+    public float buttonMoveSpeed;
 
     private bool outOfRange;
 
@@ -14,7 +14,7 @@ public class PlayerInteractionUI : MonoBehaviour
     {
        if (outOfRange)
         {
-            EButton.transform.position = Vector3.Lerp(EButton.transform.position, transform.position,  moveSpeed * Time.deltaTime);
+            EButton.transform.position = Vector3.Lerp(EButton.transform.position, transform.position,  buttonMoveSpeed * Time.deltaTime);
         } 
     }
 

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Button
   - Destroyable
+  - Farm
   layers:
   - Default
   - TransparentFX

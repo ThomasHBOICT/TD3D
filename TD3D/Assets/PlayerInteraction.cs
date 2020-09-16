@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    [HideInInspector]
     public Destroyable destroyableObject;
     public SpriteRenderer EButton;
 
