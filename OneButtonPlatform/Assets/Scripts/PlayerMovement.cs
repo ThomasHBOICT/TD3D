@@ -14,11 +14,12 @@ public class PlayerMovement : MonoBehaviour
 
     private Animator playerAnimation;
     private SpriteRenderer sprite;
-    private JumpDirectionTicker directionScript;
+    private JumpDirection directionScript;
     public SpriteRenderer jumpArrow;
 
     public FloatValue highScore;
     public FloatValue currentScore;
+    public CMCamShake camShake;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         
         playerAnimation = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
-        directionScript = GetComponentInChildren<JumpDirectionTicker>();
+        directionScript = GetComponentInChildren<JumpDirection>();
     }
 
     // Update is called once per frame
@@ -50,11 +51,9 @@ public class PlayerMovement : MonoBehaviour
             }
             rb.velocity = new Vector3(0, 0, 0);
             rb.AddForce(jumpDirection.transform.up * jumpForce);
-            rb.gravityScale = 1f;
+            camShake.CamShake(0.2f);
             canJump = false;
             playerAnimation.SetBool("isJumping", true);
-            directionScript.isOnLeftWall = false;
-            directionScript.isOnRightWall = false;
 
             if (directionScript.tickerRightSide)
             {
@@ -74,30 +73,11 @@ public class PlayerMovement : MonoBehaviour
         {
             CanJump();
         }
-        if (collision.collider.tag == "LeftWall")
-        {
-            directionScript.isOnLeftWall = true;
-            CanJump();
-        }
-        if (collision.collider.tag == "RightWall")
-        {
-            directionScript.isOnRightWall = true;
-            CanJump();
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.collider.tag == "Wall")
-        {
-            rb.gravityScale = 1f;
-        }
     }
 
     private void CanJump()
     {
         playerAnimation.SetBool("isJumping", false);
-        rb.gravityScale = 0.2f;
         canJump = true;
     }
 
