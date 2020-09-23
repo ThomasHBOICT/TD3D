@@ -19,13 +19,15 @@ public class PlayerMovement : MonoBehaviour
 
     public FloatValue highScore;
     public FloatValue currentScore;
+
+    public bool camShakeEnabled = true;
     public CMCamShake camShake;
 
     // Start is called before the first frame update
     void Start()
     {
         currentScore.@float = 0;
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         rb = GetComponent<Rigidbody2D>();
         
         playerAnimation = GetComponentInChildren<Animator>();
@@ -51,7 +53,11 @@ public class PlayerMovement : MonoBehaviour
             }
             rb.velocity = new Vector3(0, 0, 0);
             rb.AddForce(jumpDirection.transform.up * jumpForce);
-            camShake.CamShake(0.2f);
+            if (camShakeEnabled)
+            {
+                camShake.CamShake(0.2f);
+
+            }
             canJump = false;
             playerAnimation.SetBool("isJumping", true);
 

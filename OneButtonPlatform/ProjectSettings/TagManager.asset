@@ -9,6 +9,8 @@ TagManager:
   - RightWall
   - Orb
   - Lava
+  - Sword
+  - Fly
   layers:
   - Default
   - TransparentFX
