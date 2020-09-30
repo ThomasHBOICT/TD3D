@@ -21,6 +21,7 @@ public class UIController : MonoBehaviour
     }
     public void RestartGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("SampleScene");
     }
 }

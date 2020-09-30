@@ -46,7 +46,6 @@ public class LavaMovement : MonoBehaviour
         if (player.position.y > playerHeight.@float)
         {
             playerHeight.@float = player.position.y;
-            Debug.Log("playerheight = " + playerHeight.@float);
             transform.position = new Vector2(0, playerHeight.@float - lavaOffset);
         }
     }

@@ -45,12 +45,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.anyKeyDown && canJump || Input.touchCount > 0 && canJump)
+        if (Input.anyKeyDown && canJump || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && canJump)
         {
-            if (Time.timeScale < 0.1)
-            {
-                Time.timeScale = 1;
-            }
+            canJump = false;
             rb.velocity = new Vector3(0, 0, 0);
             rb.AddForce(jumpDirection.transform.up * jumpForce);
             if (camShakeEnabled)
@@ -58,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
                 camShake.CamShake(0.2f);
 
             }
-            canJump = false;
             playerAnimation.SetBool("isJumping", true);
 
             if (directionScript.tickerRightSide)

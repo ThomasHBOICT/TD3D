@@ -7,6 +7,10 @@ public class PlayerInteraction : MonoBehaviour
     [HideInInspector]
     public PlayerMovement playermove;
     public GameObject sword;
+    public float hitTime;
+    public float hitCooldown;
+
+    public FloatValue coins;
 
     private bool isHitting = false;
     // Start is called before the first frame update
@@ -19,13 +23,15 @@ public class PlayerInteraction : MonoBehaviour
     void Update()
     {
         Hit();
+        Debug.Log("Can jump: "+playermove.canJump);
+        Debug.Log("IS hitting: " + isHitting);
     }
 
     private void Hit()
     {
         if (playermove.canJump == false && isHitting == false)
         {
-            if (Input.anyKeyDown || Input.touchCount > 0)
+            if (Input.anyKeyDown || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))
             {
                 Debug.Log("sword slash");
                 StartCoroutine("HitNum");
@@ -37,8 +43,9 @@ public class PlayerInteraction : MonoBehaviour
     {
         isHitting = true;
         sword.SetActive(true);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(hitTime);
         sword.SetActive(false);
+        yield return new WaitForSeconds(hitCooldown);
         isHitting = false;
     }
 
@@ -47,6 +54,14 @@ public class PlayerInteraction : MonoBehaviour
         if (collision.collider.tag == "Fly")
         {
             Debug.Log("Player is hit");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Coin")
+        {
+            coins.@float += 1;
         }
     }
 }

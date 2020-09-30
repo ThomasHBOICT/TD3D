@@ -11,6 +11,7 @@ TagManager:
   - Lava
   - Sword
   - Fly
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -20,8 +21,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Sword
+  - Coin
   - 
   - 
   - 

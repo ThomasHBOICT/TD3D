@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5bb4dbadf1c069542984305d3a2e30b0, type: 3}
-  m_Name: playerHeight
+  m_Name: coins
   m_EditorClassIdentifier: 
-  float: 64.56302
+  float: 0

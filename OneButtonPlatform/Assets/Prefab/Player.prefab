@@ -362,7 +362,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1347895063437621911}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -478,6 +478,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playermove: {fileID: 0}
   sword: {fileID: 6493091367135692098}
+  hitTime: 0.5
+  hitCooldown: 0.1
+  coins: {fileID: 11400000, guid: 7f4f7f4053a9e0a498b7e8dd77a95b5d, type: 2}
 --- !u!1 &6493091367135692098
 GameObject:
   m_ObjectHideFlags: 0
